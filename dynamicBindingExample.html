@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<html>
+  <head>
+    <title>The example illustrates dynamic binding in Objective-C</title>
+  </head>
+  <body>
+    <!-- HTML generated using hilite.me -->
+    <div
+      style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"
+      ><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+<span style="color: #557799">#import &quot;Person.h&quot;</span>
+<span style="color: #557799">#import &quot;Machine.h&quot;</span>
+
+<span style="color: #888888">// Person</span>
+<span style="color: #008800; font-weight: bold">@implementation</span> <span style="color: #BB0066; font-weight: bold">Person</span>
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">void</span>)<span style="color: #0066BB; font-weight: bold">printInfo</span> {
+    NSLog(<span style="background-color: #fff0f0">@&quot;Person&quot;</span>);
+}
+<span style="color: #008800; font-weight: bold">@end</span>
+
+<span style="color: #888888">// Machine</span>
+<span style="color: #008800; font-weight: bold">@implementation</span> <span style="color: #BB0066; font-weight: bold">Machine</span>
+
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">void</span>)<span style="color: #0066BB; font-weight: bold">printInfo</span> {
+    NSLog(<span style="background-color: #fff0f0">@&quot;Machine&quot;</span>);
+}
+<span style="color: #008800; font-weight: bold">@end</span>
+
+
+<span style="color: #333399; font-weight: bold">int</span> main(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span> argv[])
+{
+    <span style="color: #FF0000; background-color: #FFAAAA">@</span>autoreleasepool {
+        <span style="color: #333399; font-weight: bold">id</span> obj <span style="color: #333333">=</span> [Person new];
+        [obj printInfo];
+        obj <span style="color: #333333">=</span> [Machine new];
+        [obj printInfo];
+    }
+    
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+  </body>
+</html>

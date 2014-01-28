@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<html>
+  <head>
+    <title>Forward Class Declaration</title>
+  </head>
+  <body>
+    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">//</span>
+<span style="color: #888888">// File: Person.h</span>
+<span style="color: #888888">//</span>
+<span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+
+<span style="color: #008800; font-weight: bold">@class</span> <span style="color: #BB0066; font-weight: bold">Machine</span>;
+
+<span style="color: #008800; font-weight: bold">@interface</span> <span style="color: #BB0066; font-weight: bold">Person</span> : <span style="color: #BB0066; font-weight: bold">NSObject</span>
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">void</span>)<span style="color: #0066BB; font-weight: bold">printInfo</span>;
+<span style="color: #008800; font-weight: bold">-</span>(Machine<span style="color: #333333">*</span>) <span style="color: #0066BB; font-weight: bold">controlsMachine</span>;
+<span style="color: #008800; font-weight: bold">@end</span>
+
+<span style="color: #888888">//</span>
+<span style="color: #888888">// File: Person.m</span>
+<span style="color: #888888">//</span>
+<span style="color: #557799">#import &quot;Person.h&quot;</span>
+<span style="color: #557799">#import &quot;Machine.h&quot;</span>
+
+<span style="color: #008800; font-weight: bold">@implementation</span> <span style="color: #BB0066; font-weight: bold">Person</span>
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">void</span>)<span style="color: #0066BB; font-weight: bold">printInfo</span> {
+    NSLog(<span style="background-color: #fff0f0">@&quot;Person&quot;</span>);
+}
+
+<span style="color: #008800; font-weight: bold">-</span>(Machine<span style="color: #333333">*</span>) <span style="color: #0066BB; font-weight: bold">controlsMachine</span> {
+    Machine <span style="color: #333333">*</span>machine <span style="color: #333333">=</span> [Machine new];
+    <span style="color: #008800; font-weight: bold">return</span> machine;
+}
+<span style="color: #008800; font-weight: bold">@end</span>
+
+<span style="color: #888888">//</span>
+<span style="color: #888888">// File: Machine.h</span>
+<span style="color: #888888">//</span>
+<span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+
+<span style="color: #008800; font-weight: bold">@class</span> <span style="color: #BB0066; font-weight: bold">Person</span>;
+
+<span style="color: #008800; font-weight: bold">@interface</span> <span style="color: #BB0066; font-weight: bold">Machine</span> : <span style="color: #BB0066; font-weight: bold">NSObject</span>
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">void</span>)<span style="color: #0066BB; font-weight: bold">printInfo</span>;
+<span style="color: #008800; font-weight: bold">-</span>(Person<span style="color: #333333">*</span>) <span style="color: #0066BB; font-weight: bold">isControlledBy</span>;
+<span style="color: #008800; font-weight: bold">@end</span>
+
+<span style="color: #888888">//</span>
+<span style="color: #888888">// File: Machine.m</span>
+<span style="color: #888888">//</span>
+<span style="color: #557799">#import &quot;Machine.h&quot;</span>
+<span style="color: #557799">#import &quot;Person.h&quot;</span>
+
+<span style="color: #008800; font-weight: bold">@implementation</span> <span style="color: #BB0066; font-weight: bold">Machine</span>
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">void</span>)<span style="color: #0066BB; font-weight: bold">printInfo</span> {
+    NSLog(<span style="background-color: #fff0f0">@&quot;Machine&quot;</span>);
+}
+
+<span style="color: #008800; font-weight: bold">-</span>(Person<span style="color: #333333">*</span>) <span style="color: #0066BB; font-weight: bold">isControlledBy</span> {
+    Person <span style="color: #333333">*</span>person <span style="color: #333333">=</span> [Person new];
+    <span style="color: #008800; font-weight: bold">return</span> person;
+}
+<span style="color: #008800; font-weight: bold">@end</span>
+</pre></div>
+    
+  </body>
+</html>

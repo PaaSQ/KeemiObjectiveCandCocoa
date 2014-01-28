@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <info format="1.0">
+    <title>Objective-C 2.0 and Cocoa</title>
+    <author>
+      <name>René Kollmorgen</name>
+      <email>rene.kollmorgen@keemimobile.com</email>
+    </author>
+    <publisher>
+      <name>www.keemimobile.com</name>
+      <website>www.keemimobile.com</website>
+    </publisher>
+    <cover>
+      <media ref="Cover.jpg" type="image"/>
+    </cover>
+    <download>https://github.com/PaaSQ/KeemiObjectiveCandCocoa</download>
+    <description>Objective-C is a superset of C, it is easy to mix C and even C++ into Cocoa applications. Cocoa is Apple's native object-oriented application programming interface (API) for the OS X operating system. This KEEMI catalog is aimed at developers who have already build an application using Objective-C and Cocoa (or Cocoa Touch) and want to accelerate their daily work with the essentials in mind.</description>
+    <language>english</language>
+    <version>0.1</version>
+  </info>
+  <questionList>
+    <question type="singleChoice" name="dontCompareToYes">
+      <text>Look at the code snippet below. Which description matches the result of this code?</text>
+      <answer explanation="dontCompareToYes">
+        <mediaList>
+          <media ref="boolDontCompareToYes.html" type="html"/>
+        </mediaList>
+        <answerItem correct="yes">
+          <text>BOOL is a typedef for a signed char and YES is a defined constant with value 1, the comparison checks 1 == 5 and therefore evaluates to false, "entry is not checked" is the output</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>the output is "entry is checked" as 5 is a positive value and non-zero values evaluate to true</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>each assignment to a variable of type BOOL is a checked assignment like: BOOL checkedEntry = 5?YES:NO; the output is "entry is checked"</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>BOOL is internally handled as the C99 type _Bool, therefore the compiler converts 5 to true(1)</text>
+        </answerItem>
+      </answer>
+      <resourceList>
+        <resource name="dontCompareToYes"/>
+      </resourceList>
+    </question>
+    <question type="flashcard" name="rulesOfThumbBool">
+      <text>What are the rules of thumb dealing with type BOOL?</text>
+      <answer explanation="dontCompareToYes">
+        <answerItem correct="yes">
+          <text>be carefully to compare to YES or NO directly if you can not guarantee, that the value to compare with is actually YES or NO assigned to</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>assign YES or NO to variables of type BOOL and no other values(or return values of expressions)</text>
+        </answerItem>
+      </answer>
+      <resourceList>
+        <resource name="dontCompareToYes"/>
+      </resourceList>
+    </question>
+    <question type="multipleChoice" name="dynamicBinding">
+      <text>Look at the options below. Which options matches the meaning of Dynamic Binding?</text>
+      <answer explanation="dynamicBinding" numberOfVisibleCorrectItems="2">
+        <answerItem correct="yes">
+          <text>determining the method to invoke at runtime instead of at compile time</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>is also referred to as late binding</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>in Objective-C, all methods are resolved dynamically at runtime</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>the exact code executed is determined by both the method name (the selector) and the receiving object</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>is a key concept in providing a consistent programming interface to the classes in a program</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>to enable Dynamic Binding a base class must provide a common function which is inherit by sub-classes</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>functions declared in a base class or protocol can be bind at runtime only</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question type="aggravatedSingleChoice" name="nilIsAnObject">
+      <text>What is the output of the program?</text>
+      <answer>
+        <mediaList>
+          <media ref="theObjectNil.html" type="html"/>
+        </mediaList>
+        <answerItem correct="yes" explanation="nilIsAnObject">
+          <text>intVar = 0, objectVar = (null)</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>intVar = 15, objectVar = (null)</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>intVar = 15, objectVar = Hello</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>intVar = 0, objectVar = Hello</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>the code does not compile</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>the code crashes at runtime</text>
+        </answerItem>
+      </answer>
+      <resourceList>
+        <resource name="workingWithNil"/>
+      </resourceList>
+    </question>
+    <question type="aggravatedMultipleChoice" name="forwardClassDeclaration">
+      <title>Multiple options are correct</title>
+      <text>The code snippet makes use of forward class declaration using @class. Choose the options which matches the usage and benefit of a forward class declaration.</text>
+      <answer numberOfVisibleCorrectItems="2">
+        <mediaList>
+          <media ref="forwardClassDeclaration.html" type="html"/>
+        </mediaList>
+        <answerItem correct="yes">
+          <text>Both classes, Person and Machine, refer to each other. The code would not compile correctly, if each class imports the other in the header file. Forward class declaration must be used.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Forward class declaration reduces interdependency of classes and keeps compile time as low as possible.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Limits the scope of what a consumer of your class needs to import and therefore supports maintenance.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>Forward class declaration should be used when a class derives from a base class.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>A forward class declaration is sufficient if the class uses functions from NSObject only.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>The member variable, which stores a pointer to an forward declared object, cannot be inherited from derived classes.</text>
+        </answerItem>
+      </answer>
+    </question>
+  </questionList>
+  <explanationList>
+    <explanation name="dontCompareToYes">
+      <title>Type BOOL</title>
+      <section>
+        <text>Type BOOL is a typedef for a signed char and can hold any value from -128 through 127.</text>
+        <text>YES is Objective-C’s truth value, a defined constant with value 1.</text>
+        <text>As this fact can cause subtle problems, the rules of thumbs dealing with type BOOL are:</text>
+        <question name="rulesOfThumbBool"/>
+      </section>
+      <resourceList>
+        <resource name="dontCompareToYes"/>
+      </resourceList>
+    </explanation>
+    <explanation name="dynamicBinding">
+      <title>Dynamic binding</title>
+      <section>
+        <text>Dynamic binding can be described as:</text>
+        <question name="dynamicBinding"/>
+        <text>The following example illustrates how dynamic binding can be used in Objective-C:</text>
+        <mediaList>
+          <media ref="dynamicBindingExample.html" type="html"/>
+        </mediaList>
+      </section>
+    </explanation>
+    <explanation name="nilIsAnObject">
+      <title>nil is an object</title>
+      <section>
+        <text>A nil value is the safest way to initialize an object pointer if you don’t have another value to use, because it’s perfectly acceptable in Objective-C to send a message to nil. If you do send a message to nil, obviously nothing happens.</text>
+        <text>If you expect a return value from a message sent to nil, the return value will be nil for object return types, 0 for numeric types, and NO for BOOL types. Returned structures have all members initialized to zero.</text>
+      </section>
+      <resourceList>
+        <resource name="workingWithNil"/>
+      </resourceList>
+    </explanation>
+  </explanationList>
+  <resourceList>
+    <resource name="dontCompareToYes" type="website">
+      <title>Don't compare to YES</title>
+      <link>http://blog.bignerdranch.com/564-bools-sharp-corners/</link>
+    </resource>
+    <resource name="workingWithNil" type="website">
+      <title>Working with nil</title>
+      <link>https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/WorkingwithObjects/WorkingwithObjects.html#//apple_ref/doc/uid/TP40011210-CH4-SW22</link>
+    </resource>
+    <resource name="dynamicFeaturesObjC" type="book">
+      <title>Pro Objective-C ( Apress )</title>
+      <link>http://www.apress.com/9781430250500</link>
+      <text>page 130</text>
+    </resource>
+  </resourceList>
+  <mediaList>
+    <media ref="boolDontCompareToYes.html" type="html"/>
+    <media ref="dynamicBindingExample.html" type="html" label="Dynamic Binding Example" showLabelBeforeEvaluated="yes"/>
+    <media ref="theObjectNil.html" type="html"/>
+    <media ref="forwardClassDeclaration.html" type="html"/>
+  </mediaList>
+</catalog>
