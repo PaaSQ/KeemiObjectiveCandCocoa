@@ -5,6 +5,7 @@
   </head>
   <body>
     <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+
 <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span> argv[])
 {
     <span style="color: #FF0000; background-color: #FFAAAA">@</span>autoreleasepool {
@@ -26,18 +27,19 @@
         <span style="color: #888888">// BOOL literals.</span>
         NSNumber <span style="color: #333333">*</span>yesNumber <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span><span style="color: #007020">YES</span>;           <span style="color: #888888">// equivalent to [NSNumber numberWithBool:YES]</span>
         NSNumber <span style="color: #333333">*</span>noNumber <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span><span style="color: #007020">NO</span>;             <span style="color: #888888">// equivalent to [NSNumber numberWithBool:NO]</span>
-        <span style="color: #888888">// Literal Expressions</span>
+
+<span style="color: #888888">// Literal Expressions</span>
         CGFloat xPos <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">10.0f</span>;
         CGFloat yPos <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">44.0f</span>;
         NSNumber <span style="color: #333333">*</span>expressionNumber <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>(xPos <span style="color: #333333">*</span> yPos);
         
-        <span style="color: #888888">// Literal Arrays</span>
-        <span style="color: #888888">// equivalent to NSArray *names = [NSArray arrayWithObjects:@&quot;Paul&quot;, @&quot;James&quot;, @&quot;Claude&quot;, @&quot;Jefre&quot;, nil];</span>
-        NSArray <span style="color: #333333">*</span>names <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>[<span style="background-color: #fff0f0">@&quot;Paul&quot;</span>, <span style="background-color: #fff0f0">@&quot;James&quot;</span>, <span style="background-color: #fff0f0">@&quot;Claude&quot;</span>, <span style="background-color: #fff0f0">@&quot;Jefre&quot;</span>];
+<span style="color: #888888">// Literal Arrays</span>
+        NSArray <span style="color: #333333">*</span>names <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>[<span style="background-color: #fff0f0">@&quot;Paul&quot;</span>, <span style="background-color: #fff0f0">@&quot;James&quot;</span>, <span style="background-color: #fff0f0">@&quot;Claude&quot;</span>, <span style="background-color: #fff0f0">@&quot;Jefre&quot;</span>]; <span style="color: #888888">// equivalent to NSArray *names = [NSArray arrayWithObjects:@&quot;Paul&quot;, @&quot;James&quot;, @&quot;Claude&quot;, @&quot;Jefre&quot;, nil];</span>
         NSString <span style="color: #333333">*</span>name <span style="color: #333333">=</span> names[<span style="color: #0000DD; font-weight: bold">1</span>]; <span style="color: #888888">// equivalent to NSString *name = [names objectAtIndex:1];</span>
-        
+        NSArray <span style="color: #333333">*</span>names2 <span style="color: #333333">=</span> [NSArray arrayWithObjects<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;Paul&quot;</span>, <span style="background-color: #fff0f0">@&quot;James&quot;</span>, <span style="background-color: #fff0f0">@&quot;Claude&quot;</span>, <span style="background-color: #fff0f0">@&quot;Jefre&quot;</span>];
         NSArray <span style="color: #333333">*</span>numbers <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>[fortyTwo, fortyTwoUnsigned, fortyTwoLong, fortyTwoLongLong];
-        <span style="color: #888888">// Literal Dictionary</span>
+
+<span style="color: #888888">// Literal Dictionary</span>
         NSDictionary <span style="color: #333333">*</span>address <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>{ <span style="background-color: #fff0f0">@&quot;name&quot;</span> <span style="color: #333333">:</span> <span style="background-color: #fff0f0">@&quot;Daniel Day-Lewis&quot;</span>,
           <span style="background-color: #fff0f0">@&quot;street&quot;</span> <span style="color: #333333">:</span> <span style="background-color: #fff0f0">@&quot;name of the street&quot;</span>,
           <span style="background-color: #fff0f0">@&quot;zipcode&quot;</span> <span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">@13605</span>
@@ -48,5 +50,6 @@
     <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
 }
 </pre></div>
+    
   </body>
 </html>

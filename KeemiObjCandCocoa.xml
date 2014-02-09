@@ -155,7 +155,7 @@
           <text>literal arrays, an exception is thrown at runtime, as a nil is missing at the end of the parameter list</text>
         </answerItem>
         <answerItem correct="no">
-          <text>literal dictionaries, the positions of the key and value parameters are interchange</text>
+          <text>literal dictionaries, the positions of the key and value parameters are interchanged</text>
         </answerItem>
       </answer>
     </question>
