@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<html>
+  <head>
+    <title>Objective-C Literals</title>
+  </head>
+  <body>
+    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span> argv[])
+{
+    <span style="color: #FF0000; background-color: #FFAAAA">@</span>autoreleasepool {
+        NSString <span style="color: #333333">*</span>string <span style="color: #333333">=</span> <span style="background-color: #fff0f0">@&quot;Objective-C 2.0 and Cocoa&quot;</span>;
+        
+        <span style="color: #888888">// character literals.</span>
+        NSNumber <span style="color: #333333">*</span>theLetterZ <span style="color: #333333">=</span> <span style="color: #0044DD">@&#39;Z&#39;</span>;          <span style="color: #888888">// equivalent to [NSNumber numberWithChar:&#39;Z&#39;]</span>
+        
+        <span style="color: #888888">// integral literals.</span>
+        NSNumber <span style="color: #333333">*</span>fortyTwo <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">@42</span>;             <span style="color: #888888">// equivalent to [NSNumber numberWithInt:42]</span>
+        NSNumber <span style="color: #333333">*</span>fortyTwoUnsigned <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">@42</span>U;    <span style="color: #888888">// equivalent to [NSNumber numberWithUnsignedInt:42U]</span>
+        NSNumber <span style="color: #333333">*</span>fortyTwoLong <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">@42L</span>;        <span style="color: #888888">// equivalent to [NSNumber numberWithLong:42L]</span>
+        NSNumber <span style="color: #333333">*</span>fortyTwoLongLong <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">@42L</span>L;   <span style="color: #888888">// equivalent to [NSNumber numberWithLongLong:42LL]</span>
+        
+        <span style="color: #888888">// floating point literals.</span>
+        NSNumber <span style="color: #333333">*</span>piFloat <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">@3.141592654F</span>;    <span style="color: #888888">// equivalent to [NSNumber numberWithFloat:3.141592654F]</span>
+        NSNumber <span style="color: #333333">*</span>piDouble <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">@3.1415926535</span>;   <span style="color: #888888">// equivalent to [NSNumber numberWithDouble:3.1415926535]</span>
+        
+        <span style="color: #888888">// BOOL literals.</span>
+        NSNumber <span style="color: #333333">*</span>yesNumber <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span><span style="color: #007020">YES</span>;           <span style="color: #888888">// equivalent to [NSNumber numberWithBool:YES]</span>
+        NSNumber <span style="color: #333333">*</span>noNumber <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span><span style="color: #007020">NO</span>;             <span style="color: #888888">// equivalent to [NSNumber numberWithBool:NO]</span>
+        <span style="color: #888888">// Literal Expressions</span>
+        CGFloat xPos <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">10.0f</span>;
+        CGFloat yPos <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">44.0f</span>;
+        NSNumber <span style="color: #333333">*</span>expressionNumber <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>(xPos <span style="color: #333333">*</span> yPos);
+        
+        <span style="color: #888888">// Literal Arrays</span>
+        <span style="color: #888888">// equivalent to NSArray *names = [NSArray arrayWithObjects:@&quot;Paul&quot;, @&quot;James&quot;, @&quot;Claude&quot;, @&quot;Jefre&quot;, nil];</span>
+        NSArray <span style="color: #333333">*</span>names <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>[<span style="background-color: #fff0f0">@&quot;Paul&quot;</span>, <span style="background-color: #fff0f0">@&quot;James&quot;</span>, <span style="background-color: #fff0f0">@&quot;Claude&quot;</span>, <span style="background-color: #fff0f0">@&quot;Jefre&quot;</span>];
+        NSString <span style="color: #333333">*</span>name <span style="color: #333333">=</span> names[<span style="color: #0000DD; font-weight: bold">1</span>]; <span style="color: #888888">// equivalent to NSString *name = [names objectAtIndex:1];</span>
+        
+        NSArray <span style="color: #333333">*</span>numbers <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>[fortyTwo, fortyTwoUnsigned, fortyTwoLong, fortyTwoLongLong];
+        <span style="color: #888888">// Literal Dictionary</span>
+        NSDictionary <span style="color: #333333">*</span>address <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>{ <span style="background-color: #fff0f0">@&quot;name&quot;</span> <span style="color: #333333">:</span> <span style="background-color: #fff0f0">@&quot;Daniel Day-Lewis&quot;</span>,
+          <span style="background-color: #fff0f0">@&quot;street&quot;</span> <span style="color: #333333">:</span> <span style="background-color: #fff0f0">@&quot;name of the street&quot;</span>,
+          <span style="background-color: #fff0f0">@&quot;zipcode&quot;</span> <span style="color: #333333">:</span> <span style="color: #0000DD; font-weight: bold">@13605</span>
+        };
+    
+    } <span style="color: #888888">// @autoreleasepool</span>
+    
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+  </body>
+</html>

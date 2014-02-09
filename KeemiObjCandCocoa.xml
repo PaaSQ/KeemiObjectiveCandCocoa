@@ -138,6 +138,27 @@
         </answerItem>
       </answer>
     </question>
+    <question type="aggravatedSingleChoice" name="literalSyntax">
+      <title>Only one option is correct</title>
+      <text>The code shown makes use of the literal syntax of Objective-C. Which option applies to the code?</text>
+      <answer>
+        <mediaList>
+          <media ref="literalSyntax.html" type="html"/>
+        </mediaList>
+        <answerItem correct="yes">
+          <text>the code compiles and runs successfully</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>literal expressions are not supported</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>literal arrays, an exception is thrown at runtime, as a nil is missing at the end of the parameter list</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>literal dictionaries, the positions of the key and value parameters are interchange</text>
+        </answerItem>
+      </answer>
+    </question>
   </questionList>
   <explanationList>
     <explanation name="dontCompareToYes">
