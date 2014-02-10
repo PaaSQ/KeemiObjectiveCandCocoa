@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<html>
+  <head>
+    <title>Objective-C Literals</title>
+  </head>
+  <body>
+    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">1 <span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+2
+3 <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span> argv[])
+4 {
+5    <span style="color: #FF0000; background-color: #FFAAAA">@</span>autoreleasepool {
+6        
+7        NSNumber <span style="color: #333333">*</span>fortyOne <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">@41</span>;
+8        NSNumber <span style="color: #333333">*</span>fortyTwoUnsigned <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">@42</span>U;
+10       NSNumber <span style="color: #333333">*</span>fortyThreeLong <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">@43L</span>;
+11       NSNumber <span style="color: #333333">*</span>fortyFourLongLong <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">@44L</span>L;
+12       NSNumber <span style="color: #333333">*</span>nilObject <span style="color: #333333">=</span> <span style="color: #007020">nil</span>;
+13       
+14       NSArray <span style="color: #333333">*</span>numbers <span style="color: #333333">=</span> <span style="color: #FF0000; background-color: #FFAAAA">@</span>[fortyOne, fortyTwoUnsigned, nilObject, fortyThreeLong, fortyFourLongLong];
+15       
+16       NSLog(<span style="background-color: #fff0f0">@&quot;numbers:%@&quot;</span>, numbers);
+17   
+18   }
+    
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+    
+  </body>
+</html>

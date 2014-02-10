@@ -143,19 +143,22 @@
       <text>The code shown makes use of the literal syntax of Objective-C. Which option applies to the code?</text>
       <answer>
         <mediaList>
-          <media ref="literalSyntax.html" type="html"/>
+          <media ref="literalInsertNilIntoArray.html" type="html"/>
         </mediaList>
-        <answerItem correct="yes">
-          <text>the code compiles and runs successfully</text>
+        <answerItem correct="no">
+          <text>objects of type NSNumber can not be created using the literal syntax</text>
         </answerItem>
         <answerItem correct="no">
-          <text>literal expressions are not supported</text>
+          <text>this code prints: numbers: 41, 42</text>
         </answerItem>
         <answerItem correct="no">
-          <text>literal arrays, an exception is thrown at runtime, as a nil is missing at the end of the parameter list</text>
+          <text>this code prints: numbers: 41, 42, null, 43, 44</text>
         </answerItem>
         <answerItem correct="no">
-          <text>literal dictionaries, the positions of the key and value parameters are interchanged</text>
+          <text>line 14, an exception is thrown at runtime as a nil is missing at the end of the parameter list</text>
+        </answerItem>
+        <answerItem correct="yes" explanation="literalSyntax">
+          <text>an exception of type NSInvalidArgumentException is thrown at runtime</text>
         </answerItem>
       </answer>
     </question>
@@ -194,6 +197,19 @@
         <resource name="workingWithNil"/>
       </resourceList>
     </explanation>
+    <explanation name="literalSyntax">
+      <title>Objective-C Literals</title>
+      <section>
+        <text>An “Objective-C Literal” is a chunk of code that references a specific Cocoa object, creating it if necessary. Using the literal syntax reduces source code size and makes it much easier to read. The code below shows how to create objects of type NSString, NSNumber, NSArray and NSDictionary using the literal syntax.</text>
+        <mediaList>
+          <media ref="literalSyntax.html" type="html"/>
+        </mediaList>
+        <text>Attempting to insert nil into an array or dictionary with literal syntax will cause an exception to be thrown.</text>
+        <mediaList>
+          <media ref="literalInsertNilIntoArray.html" type="html"/>
+        </mediaList>
+      </section>
+    </explanation>
   </explanationList>
   <resourceList>
     <resource name="dontCompareToYes" type="website">
@@ -215,5 +231,6 @@
     <media ref="dynamicBindingExample.html" type="html" label="Dynamic Binding Example" showLabelBeforeEvaluated="yes"/>
     <media ref="theObjectNil.html" type="html"/>
     <media ref="forwardClassDeclaration.html" type="html"/>
+    <media ref="literalInsertNilIntoArray.html" type="html" label="NSInvalidArgumentException is thrown"/>
   </mediaList>
 </catalog>
