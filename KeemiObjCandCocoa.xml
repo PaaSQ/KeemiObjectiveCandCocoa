@@ -162,6 +162,17 @@
         </answerItem>
       </answer>
     </question>
+    <question type="flashcard" name="enumerationsSwitchStatement">
+      <text>The code shown produces a compiler warning. Why?</text>
+      <answer>
+        <mediaList>
+          <media ref="enumarationsSwitchStatement.html" type="html"/>
+        </mediaList>
+        <answerItem correct="yes" explanation="enumarations">
+          <text>The compiler warning is: Enumeration values 'MY_OPTION_2', 'MY_OPTION_3', and 'MY_OPTION_4' not handled in switch</text>
+        </answerItem>
+      </answer>
+    </question>
   </questionList>
   <explanationList>
     <explanation name="dontCompareToYes">
@@ -210,6 +221,18 @@
         </mediaList>
       </section>
     </explanation>
+    <explanation name="enumarations">
+      <title>Using Enumerations</title>
+      <section>
+        <text>Enumerations give values are readable name. They can be used to define states, error status or options passed to methods. Enumerations can be defined with an explicit type. Doing so means that the type is guaranteed to be the chosen rather than a type chosen by the compiler. The code below illustrates the usage of enumerations.</text>
+        <mediaList>
+          <media ref="enumarations.html" type="html"/>
+        </mediaList>
+      </section>
+      <resourceList>
+        <resource name="enumerations"/>
+      </resourceList>
+    </explanation>
   </explanationList>
   <resourceList>
     <resource name="dontCompareToYes" type="website">
@@ -220,10 +243,9 @@
       <title>Working with nil</title>
       <link>https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/WorkingwithObjects/WorkingwithObjects.html#//apple_ref/doc/uid/TP40011210-CH4-SW22</link>
     </resource>
-    <resource name="dynamicFeaturesObjC" type="book">
-      <title>Pro Objective-C ( Apress )</title>
-      <link>http://www.apress.com/9781430250500</link>
-      <text>page 130</text>
+    <resource name="enumerations" type="website">
+      <title>NS_ENUM &amp; NS_OPTIONS</title>
+      <link>http://nshipster.com/ns_enum-ns_options/</link>
     </resource>
   </resourceList>
   <mediaList>

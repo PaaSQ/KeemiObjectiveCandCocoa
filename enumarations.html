@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<html>
+  <head>
+    <title>The example illustrates dynamic binding in Objective-C</title>
+  </head>
+  <body>
+    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+
+<span style="color: #008800; font-weight: bold">typedef</span> <span style="color: #008800; font-weight: bold">enum</span> {
+    MY_ERROR_INVALID_PARAMETERS,
+    MY_ERROR_CONNECTION_CANCELD,
+    MY_ERROR_CONNECTION_LOSED,
+} MyErrorCode;
+
+<span style="color: #008800; font-weight: bold">typedef</span> <span style="color: #0066BB; font-weight: bold">NS_ENUM</span>(<span style="color: #333399; font-weight: bold">short</span>, MyOption) {
+    MY_OPTION_1,
+    MY_OPTION_2,
+    MY_OPTION_3,
+    MY_OPTION_4,
+};
+
+<span style="color: #008800; font-weight: bold">typedef</span> <span style="color: #0066BB; font-weight: bold">NS_OPTIONS</span>(<span style="color: #333399; font-weight: bold">unsigned</span> <span style="color: #333399; font-weight: bold">char</span>, MyState) {
+    MY_STATE_1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">&lt;&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span>,
+    MY_STATE_2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">&lt;&lt;</span> <span style="color: #0000DD; font-weight: bold">1</span>,
+    MY_STATE_3 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">&lt;&lt;</span> <span style="color: #0000DD; font-weight: bold">2</span>,
+    MY_STATE_4 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">&lt;&lt;</span> <span style="color: #0000DD; font-weight: bold">3</span>,
+};
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span> argv[])
+{
+    MyErrorCode error <span style="color: #333333">=</span> MY_ERROR_INVALID_PARAMETERS;
+    NSLog(<span style="background-color: #fff0f0">@&quot;length of error:%lu&quot;</span>, <span style="color: #008800; font-weight: bold">sizeof</span>(error));
+    <span style="color: #888888">// prints: error:4</span>
+    
+    MyOption option <span style="color: #333333">=</span> MY_OPTION_1;
+    NSLog(<span style="background-color: #fff0f0">@&quot;length of option:%lu&quot;</span>, <span style="color: #008800; font-weight: bold">sizeof</span>(option));
+    <span style="color: #888888">// prints: option:2</span>
+    
+    MyState state <span style="color: #333333">=</span> MY_STATE_1;
+    NSLog(<span style="background-color: #fff0f0">@&quot;length of state:%lu&quot;</span>, <span style="color: #008800; font-weight: bold">sizeof</span>(state));
+    <span style="color: #888888">// prints: state:1</span>
+    
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+    
+  </body>
+</html>
