@@ -232,6 +232,53 @@
         </answerItem>
       </answer>
     </question>
+    <question name="propertiesAttrAdhereSemantics" type="aggravatedSingleChoice">
+      <text>What does the program print?</text>
+      <answer>
+        <mediaList>
+          <media ref="personPropertyMemoryAttributesAdhereSemantics.html" type="html"/>
+        </mediaList>
+        <answerItem correct="yes" explanation="propertiesAttrAdhereSemantics">
+          <text>firstName=Paul, lastName=1234567</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>firstName=Paul, lastName=Johnson</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>firstName=1234, lastName=1234567</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>firstName=1234, lastName=Johnson</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="equalObjects" type="multipleChoice">
+      <title>Object Equality</title>
+      <text>Which options best matches the handling of object equality?</text>
+      <answer numberOfVisibleCorrectItems="2" explanation="equalObjects">
+        <answerItem correct="yes">
+          <text>Provide isEqual: and hash methods for objects that you will want to check for equality.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Objects that are equal must have the same hash, but objects that have the same hash do not necessarily have to be equal.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Testing every property to determine equality is not necessary, check what is useful.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Write hash methods that will be quick but provide a reasonably low level of collisions.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>Objects that have the same hash must be equal.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>Objects that are equal must have the same identity, obj1 == obj2 must be true.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>The isEqual: method from NSObject is sufficient.</text>
+        </answerItem>
+      </answer>
+    </question>
   </questionList>
   <explanationList>
     <explanation name="dontCompareToYes">
@@ -331,6 +378,26 @@
       <section>
         <title>copy</title>
         <text>Instead of retaining the value is copied.</text>
+      </section>
+    </explanation>
+    <explanation name="propertiesAttrAdhereSemantics">
+      <title>Properties / Adhere property semantics</title>
+      <section>
+        <text>Ensure that anywhere a property's backing variable is set, the declared semantics are adhered to. If you declare a property as copy for example ensure that this documented contract is implemented in all methods which set the property's variable like initializers or setters.</text>
+        <text>By default the compiler generates the right semantic for setters for you. Look at the program below.</text>
+        <mediaList>
+          <media ref="personPropertyMemoryAttributesAdhereSemantics.html" type="html"/>
+        </mediaList>
+        <text>The program prints:firstName=Paul, lastName=1234567</text>
+        <text>as the setter for property lastName does not implement the copy as documented with the declaration.</text>
+      </section>
+    </explanation>
+    <explanation name="equalObjects">
+      <title>Object Equality</title>
+      <section>
+        <text>The hash and isEqual: methods, both declared by the NSObject protocol, are closely related. The hash method must be implemented to return an integer that can be used as a table address in a hash table structure. If two objects are equal (as determined by the isEqual: method), they must have the same hash value. If your object could be included in collections such as NSSet objects, you need to define hash and verify the invariant that if two objects are equal, they return the same hash value. The default NSObject implementation of isEqual: simply checks for pointer equality.</text>
+        <text>The general rules using isEqual: and hash are:</text>
+        <question name="equalObjects"/>
       </section>
     </explanation>
   </explanationList>
