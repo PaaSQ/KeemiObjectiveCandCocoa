@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<html>
+  <head>
+    <title>Objective-C Properties</title>
+  </head>
+  <body>
+    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+<span style="color: #557799">#import &quot;Person.h&quot;</span>
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span> argv[])
+{
+    <span style="color: #FF0000; background-color: #FFAAAA">@</span>autoreleasepool {
+        Person <span style="color: #333333">*</span>person <span style="color: #333333">=</span> [Person new];
+        <span style="color: #888888">// Dot syntax allows you to access properties like this:</span>
+        person.firstName <span style="color: #333333">=</span> <span style="background-color: #fff0f0">@&quot;Paul&quot;</span>; <span style="color: #888888">// equivalent to [person setFirstName:@&quot;Paul&quot;];</span>
+        person.lastName <span style="color: #333333">=</span> <span style="background-color: #fff0f0">@&quot;Johnson&quot;</span>; <span style="color: #888888">// equivalent to [person lastName];</span>
+        NSLog(<span style="background-color: #fff0f0">@&quot;fullName=%@ %@&quot;</span>, person.firstName, person.lastName);
+    }
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+    
+  </body>
+</html>

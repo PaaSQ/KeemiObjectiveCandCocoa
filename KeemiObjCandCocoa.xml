@@ -173,6 +173,65 @@
         </answerItem>
       </answer>
     </question>
+    <question type="flashcard" name="propertiesNamingConventions">
+      <text>What are the naming conventions for synthesized property methods?</text>
+      <answer>
+        <answerItem correct="yes" explanation="properties">
+          <text>The method used to access the value (the getter method) has the same name as the property. The getter method for a property called firstName will also be called firstName.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>The method used to set the value (the setter method) starts with the word "set" and then uses the capitalized property name. The setter method for a property called firstName will be called setFirstName:.</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question type="singleChoice" name="propertiesSynthesizeDirective">
+      <text>Which option matches the usage of the @synthesize directive?</text>
+      <answer>
+        <answerItem correct="yes" explanation="properties">
+          <text>the @synthesize directive is used to give the generated instance variable a specified name e.g. @synthesize firstName = foreName</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>the @synthesize directive must be used for every property declared</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>the @synthesize directive must be used for every property which uses memory-management relevant attributes like strong, weak, copy and assign</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>the @synthesize directive must not be used for readonly properties</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="propertiesMemoryAttrDefault" type="wordResponse">
+      <text>Which is the default memory-management related attribute for properties?</text>
+      <answer>
+        <answerItem correct="yes" explanation="propertiesMemoryAttributes">
+          <text>strong</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="propertiesMemoryAttr" type="aggravatedSingleChoice">
+      <text>What does the program print?</text>
+      <answer>
+        <mediaList>
+          <media ref="personPropertyMemoryAttributes.html" type="html"/>
+        </mediaList>
+        <answerItem correct="yes" explanation="propertiesMemoryAttributes">
+          <text>firstName=Paul, printing the nickName crashes with an EXC_BAD_ACCESS exception</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>firstName=Paul, lastName=Johnson, nickName=paul</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>firstName=Paul, lastName=Johnson</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>firstName=Paul</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>prints nothing and trying to print the nickName crashes with an EXC_BAD_ACCESS exception</text>
+        </answerItem>
+      </answer>
+    </question>
   </questionList>
   <explanationList>
     <explanation name="dontCompareToYes">
@@ -232,6 +291,47 @@
       <resourceList>
         <resource name="enumerations"/>
       </resourceList>
+    </explanation>
+    <explanation name="properties">
+      <title>Properties</title>
+      <section>
+        <text>Objective-C properties offer a way to define the information that a class is intended to encapsulate. You access or set an object’s properties via accessor methods. By default, these accessor methods are synthesized automatically for you by the compiler, so you don’t need to do anything other than declare the property using @property in the class interface. The synthesized methods follow specific naming conventions:</text>
+        <question name="propertiesNamingConventions"/>
+        <text>As well as making explicit accessor method calls, Objective-C offers an alternative dot syntax to access an object’s properties.</text>
+        <mediaList>
+          <media ref="personPropertiesHeader.html" type="html"/>
+          <media ref="personPropertiesImp.html" type="html"/>
+          <media ref="personPropertiesMain.html" type="html"/>
+        </mediaList>
+        <text>How the compiler should synthesize the relevant accessor methods are further specified by property attributes. In the case of attribute: readonly, the compiler will synthesize a fullName getter method, but not a setFullName: method.</text>
+        <text>By default, a readwrite property will be backed by an instance variable, which will again be synthesized automatically by the compiler. Unless you specify otherwise, the synthesized instance variable has the same name as the property, but with an underscore prefix. For a property called firstName, for example, the synthesized instance variable will be called _firstName.</text>
+      </section>
+    </explanation>
+    <explanation name="propertiesMemoryAttributes">
+      <title>Properties / Memory-Management Semantics</title>
+      <section>
+        <text>Properties encapsulate data, and that data needs to have concrete ownership semantics. This affects only the setter. When the compiler synthesizes the accessors, it uses property attributes to determine what code to generate. If you create your own accessors, you must stick to what you specify for this attribute. Memory-Management related attribues are:</text>
+      </section>
+      <section>
+        <title>assign</title>
+        <text>The generated setter is a simple assign operation used for scalar types such NSInteger</text>
+      </section>
+      <section>
+        <title>strong</title>
+        <text>The new value set is retained, the old value is released (if there are no references to the object anymore). Object properties are strong by default.</text>
+      </section>
+      <section>
+        <title>weak</title>
+        <text>Defines a nonowning relationship. The new value set is not retained nor is the old value released. When the value is destroyed the property values is nilled out.</text>
+      </section>
+      <section>
+        <title>unsafe_unretained</title>
+        <text>Has the same semantics as assign but is used for objects. The value is not nilled out if the target is destroyed.</text>
+      </section>
+      <section>
+        <title>copy</title>
+        <text>Instead of retaining the value is copied.</text>
+      </section>
     </explanation>
   </explanationList>
   <resourceList>
