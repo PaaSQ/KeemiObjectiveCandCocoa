@@ -285,6 +285,42 @@
         <resource name="objectEquality"/>
       </resourceList>
     </question>
+    <question name="implementingInit" type="order">
+      <title>Implementing an Initializer</title>
+      <text>There are several critical rules to follow when implementing an init... method that serves as a class’s sole initializer. Order the required steps!</text>
+      <answer explanation="designatedInitializer">
+        <answerItem correct="yes">
+          <text>Always invoke the superclass (super) initializer first.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Check the object returned by the superclass. If it is nil, then initialization cannot proceed; return nil to the receiver.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>When initializing instance variables that are references to objects, retain or copy the object as necessary (in memory-managed code).</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>After setting instance variables to valid initial values, return self unless:A problem prevented initialization from succeeding, in which case return nil - or - It was necessary to return a substituted object, in which case release the freshly allocated object first (in memory-managed code).</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="designatedInitializer" type="flashcard">
+    <title>Designated Initializer</title>
+    <text>What are the rules of thumb regarding a designated initializer?</text>
+    <answer explanation="designatedInitializer">
+    <answerItem correct="yes">
+	<text>Document which one it is. All other initializer should call through to this one!</text>
+    </answerItem>
+    <answerItem correct="yes">
+    <text>If the designated initializer is different from the superclass, ensure that its designated initializer is overridden.</text>
+    </answerItem>
+    <answerItem correct="yes">
+    <text>Throw an exception in initializers overridden from superclasses that should not be used in the subclass.</text>
+    </answerItem>
+    <answerItem correct="yes">
+    <text></text>
+    </answerItem>
+    </answer>
+    </question>
   </questionList>
   <explanationList>
     <explanation name="dontCompareToYes">
@@ -410,7 +446,7 @@
         <mediaList>
           <media ref="personEquality.html" type="html"/>
         </mediaList>
-	<text>The program prints: 1. equal, 2. equal and 4. equal</text>
+        <text>The program prints: 1. equal, 2. equal and 4. equal</text>
       </section>
       <resourceList>
         <resource name="objectEquality"/>
@@ -419,7 +455,11 @@
     <explanation name="designatedInitializer">
       <title>Object Initialization</title>
       <section>
-        <text/>
+        <text>Often initialization depends on external data to set an object to a reasonable initial state. Thus initializers can take one or more parameters; the only requirement is that the initializing method begins with the letters “init”.</text><text>A typical implementation of a initializer involves the follwing steps:</text><question name="implementingInit"/>
+        </section>
+	<section>
+	<title>Designated Initializer</title>
+	<text>If there are multiple initializers for a class, such a class should have a designated initializer. The rules of thumb using a designated initializer are:</text>
       </section>
     </explanation>
   </explanationList>
