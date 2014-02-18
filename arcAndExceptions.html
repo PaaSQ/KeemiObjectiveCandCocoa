@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<html>
+  <head>
+    <title>ARC and Exceptions</title>
+  </head>
+  <body>
+   <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#import &lt;Foundation/Foundation.h&gt;</span>
+
+<span style="color: #888888">// Person</span>
+<span style="color: #008800; font-weight: bold">@interface</span> <span style="color: #BB0066; font-weight: bold">Person</span> : <span style="color: #BB0066; font-weight: bold">NSObject</span>
+
+<span style="color: #008800; font-weight: bold">@property</span> (nonatomic, copy) NSString<span style="color: #333333">*</span> firstName;
+<span style="color: #008800; font-weight: bold">@property</span> (nonatomic, copy) NSString<span style="color: #333333">*</span> lastName;
+
+<span style="color: #888888">// Designated initializer</span>
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">id</span>)<span style="color: #0066BB; font-weight: bold">initWithFirstName:</span>(NSString<span style="color: #333333">*</span>)<span style="color: #996633">firstName</span> <span style="color: #0066BB; font-weight: bold">andLastName:</span>(NSString<span style="color: #333333">*</span>)<span style="color: #996633">lastName</span>;
+
+<span style="color: #008800; font-weight: bold">@end</span>
+
+<span style="color: #888888">//</span>
+<span style="color: #888888">// main</span>
+<span style="color: #888888">//</span>
+<span style="color: #333399; font-weight: bold">int</span> main(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #008800; font-weight: bold">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span> argv[])
+{
+    <span style="color: #888888">// This code assumes Automatic Reference Counting ( ARC ) is used!</span>
+    <span style="color: #FF0000; background-color: #FFAAAA">@</span>autoreleasepool {
+        <span style="color: #008800; font-weight: bold">@try</span> {
+            Person <span style="color: #333333">*</span>paul_1 <span style="color: #333333">=</span> [[Person alloc]initWithFirstName<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;Paul&quot;</span> andLastName<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;Johnson&quot;</span>];
+            Person <span style="color: #333333">*</span>paul_2 <span style="color: #333333">=</span> [[Person alloc]initWithFirstName<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;Paul&quot;</span> andLastName<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;Johnson&quot;</span>];
+            Person <span style="color: #333333">*</span>sarah <span style="color: #333333">=</span> [[Person alloc]initWithFirstName<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;Sarah&quot;</span> andLastName<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;Johnson&quot;</span>];
+            
+            <span style="color: #008800; font-weight: bold">@throw</span> [NSException exceptionWithName<span style="color: #333333">:</span>NSInternalInconsistencyException reason<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;the reason...&quot;</span> userInfo<span style="color: #333333">:</span><span style="color: #007020">nil</span>];
+            
+        } <span style="color: #008800; font-weight: bold">@catch</span> (NSException <span style="color: #333333">*</span>exception) {
+            NSLog(<span style="background-color: #fff0f0">@&quot;%@&quot;</span>, exception);
+        } <span style="color: #008800; font-weight: bold">@finally</span> {
+            NSLog(<span style="background-color: #fff0f0">@&quot;finally&quot;</span>);
+        }
+        
+    }
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+
+<span style="color: #888888">// Person</span>
+<span style="color: #008800; font-weight: bold">@implementation</span> <span style="color: #BB0066; font-weight: bold">Person</span>
+
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">void</span>)<span style="color: #0066BB; font-weight: bold">dealloc</span> {
+    NSLog(<span style="background-color: #fff0f0">@&quot;%@:%p - %@ %@&quot;</span>, [self className], self, _firstName, _lastName);
+}
+
+<span style="color: #888888">// Designated initializer</span>
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">id</span>)<span style="color: #0066BB; font-weight: bold">initWithFirstName:</span>(NSString<span style="color: #333333">*</span>)<span style="color: #996633">firstName</span> <span style="color: #0066BB; font-weight: bold">andLastName:</span>(NSString<span style="color: #333333">*</span>)<span style="color: #996633">lastName</span> {
+    self <span style="color: #333333">=</span> [super init];
+    <span style="color: #008800; font-weight: bold">if</span>(self <span style="color: #333333">&amp;&amp;</span> firstName <span style="color: #333333">&amp;&amp;</span> lastName) {
+        _firstName <span style="color: #333333">=</span> [firstName copy]; <span style="color: #888888">// fulfill the the documented declaration contract</span>
+        _lastName <span style="color: #333333">=</span> [lastName copy];
+    } <span style="color: #008800; font-weight: bold">else</span> {
+        self <span style="color: #333333">=</span> <span style="color: #007020">nil</span>;
+    }
+    <span style="color: #008800; font-weight: bold">return</span> self;
+}
+
+<span style="color: #008800; font-weight: bold">-</span>(<span style="color: #333399; font-weight: bold">id</span>)<span style="color: #0066BB; font-weight: bold">init</span> {
+    <span style="color: #008800; font-weight: bold">@throw</span> [NSException exceptionWithName<span style="color: #333333">:</span>NSInternalInconsistencyException reason<span style="color: #333333">:</span><span style="background-color: #fff0f0">@&quot;Must use initWithFirstName:: instead!&quot;</span> userInfo<span style="color: #333333">:</span><span style="color: #007020">nil</span>];
+}
+
+
+<span style="color: #008800; font-weight: bold">@end</span>
+</pre></div>
+
+  </body>
+</html>

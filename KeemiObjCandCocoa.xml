@@ -290,7 +290,7 @@
       <text>There are several critical rules to follow when implementing an init... method that serves as a class’s sole initializer. Order the required steps!</text>
       <answer explanation="designatedInitializer">
         <answerItem correct="yes">
-          <text>Always invoke the superclass (super) initializer first.</text>
+          <text>Invoke the superclass (super) initializer.</text>
         </answerItem>
         <answerItem correct="yes">
           <text>Check the object returned by the superclass. If it is nil, then initialization cannot proceed; return nil to the receiver.</text>
@@ -304,22 +304,58 @@
       </answer>
     </question>
     <question name="designatedInitializer" type="flashcard">
-    <title>Designated Initializer</title>
-    <text>What are the rules of thumb regarding a designated initializer?</text>
-    <answer explanation="designatedInitializer">
-    <answerItem correct="yes">
-	<text>Document which one it is. All other initializer should call through to this one!</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>If the designated initializer is different from the superclass, ensure that its designated initializer is overridden.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>Throw an exception in initializers overridden from superclasses that should not be used in the subclass.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text></text>
-    </answerItem>
-    </answer>
+      <title>Designated Initializer</title>
+      <text>What are the rules of thumb regarding a designated initializer?</text>
+      <answer explanation="designatedInitializer">
+        <answerItem correct="yes">
+          <text>Document which one it is. All other initializer should call through to this one!</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>If the designated initializer is different from the superclass, ensure that its designated initializer is overridden.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Throw an exception in initializers overridden from superclasses that should not be used in the subclass.</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="errorModel" type="aggravatedSingleChoice">
+      <title>ARC and Exceptions</title>
+      <text>What does the program print?</text>
+      <answer>
+        <mediaList>
+          <media ref="arcAndExceptions.html" type="html"/>
+        </mediaList>
+        <answerItem correct="no">
+          <text>the program prints: Person:0x1027176b0 - Sarah Johnson, Person:0x102717050 - Paul Johnson, Person:0x102711240 - Paul Johnson, finally</text>
+        </answerItem>
+        <answerItem correct="yes" explanation="exceptionsAndErrors">
+          <text>the program prints: the reason..., finally</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>the program prints: finally</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>the program prints: the reason...</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="nscopyProtocol" type="flashcard">
+      <title>Copying protocols</title>
+      <text>What are the rules of thumb implementing the NSCopying or NSMutableCopying protocols?</text>
+      <answer>
+        <answerItem correct="yes">
+          <text>Implement NSCopying if yout object will need no be copied.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>If your object has mutable and immutable variants, implement both the NSCopying and NSMutableCopying protocols.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Decide whether a copy will be shallow or deep, and prefer shallow, where possible, for a normal copy.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Consider adding a deep-copy method if deep copies of yout object will be useful.</text>
+        </answerItem>
+      </answer>
     </question>
   </questionList>
   <explanationList>
@@ -455,11 +491,26 @@
     <explanation name="designatedInitializer">
       <title>Object Initialization</title>
       <section>
-        <text>Often initialization depends on external data to set an object to a reasonable initial state. Thus initializers can take one or more parameters; the only requirement is that the initializing method begins with the letters “init”.</text><text>A typical implementation of a initializer involves the follwing steps:</text><question name="implementingInit"/>
-        </section>
-	<section>
-	<title>Designated Initializer</title>
-	<text>If there are multiple initializers for a class, such a class should have a designated initializer. The rules of thumb using a designated initializer are:</text>
+        <text>Often initialization depends on external data to set an object to a reasonable initial state. Thus initializers can take one or more parameters; the only requirement is that the initializing method begins with the letters “init”.</text>
+        <text>A typical implementation of a initializer involves the follwing steps:</text>
+        <question name="implementingInit"/>
+      </section>
+      <section>
+        <title>Designated Initializer</title>
+        <text>If there are multiple initializers for a class, such a class should have a designated initializer. The rules of thumb using a designated initializer are:</text><question name="designatedInitializer"/> 
+      </section>
+    </explanation>
+    <explanation name="exceptionsAndErrors">
+      <title>Dealing with Errors</title>
+      <section>
+        <text>Automatic Reference Counting(ARC) is not exception safe by default, any objects that should be released at the end of a scope in which an exception is thrown will not be released using ARC. The program below prints: the reason..., finally</text>
+        <mediaList>
+          <media ref="arcAndExceptions.html" type="html"/>
+        </mediaList>
+        <text>The dealloc methods are not called!</text>
+        <text>The rules of thumb handling erros in Objective-C are:</text>
+        <text>Use exceptions only for fatal errors that should bring down the entire application.</text>
+        <text>For nonfatal errors, either provide a delegate method to handle errors or offer an out-parameter NSError object.</text>
       </section>
     </explanation>
   </explanationList>
