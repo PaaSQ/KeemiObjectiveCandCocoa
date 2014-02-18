@@ -207,6 +207,9 @@
         <answerItem correct="yes" explanation="propertiesMemoryAttributes">
           <text>strong</text>
         </answerItem>
+        <answerItem correct="yes">
+          <text>Strong</text>
+        </answerItem>
       </answer>
     </question>
     <question name="propertiesMemoryAttr" type="aggravatedSingleChoice">
@@ -278,6 +281,9 @@
           <text>The isEqual: method from NSObject is sufficient.</text>
         </answerItem>
       </answer>
+      <resourceList>
+        <resource name="objectEquality"/>
+      </resourceList>
     </question>
   </questionList>
   <explanationList>
@@ -399,9 +405,30 @@
         <text>The general rules using isEqual: and hash are:</text>
         <question name="equalObjects"/>
       </section>
+      <section>
+        <text>The program below shows the implementation of isEqual: and hash exemplary.</text>
+        <mediaList>
+          <media ref="personEquality.html" type="html"/>
+        </mediaList>
+	<text>The program prints: 1. equal, 2. equal and 4. equal</text>
+      </section>
+      <resourceList>
+        <resource name="objectEquality"/>
+      </resourceList>
+    </explanation>
+    <explanation name="designatedInitializer">
+      <title>Object Initialization</title>
+      <section>
+        <text/>
+      </section>
     </explanation>
   </explanationList>
   <resourceList>
+    <resource name="effectiveObjc" type="book">
+      <title>Effectice Objective-C 2.0</title>
+      <link>http://www.effectiveobjectivec.com/</link>
+      <text>52 Specific Ways to Improve Your iOS and OS X Programs</text>
+    </resource>
     <resource name="dontCompareToYes" type="website">
       <title>Don't compare to YES</title>
       <link>http://blog.bignerdranch.com/564-bools-sharp-corners/</link>
@@ -413,6 +440,10 @@
     <resource name="enumerations" type="website">
       <title>NS_ENUM &amp; NS_OPTIONS</title>
       <link>http://nshipster.com/ns_enum-ns_options/</link>
+    </resource>
+    <resource name="objectEquality" type="website">
+      <title>A good hash function ...</title>
+      <link>http://de.scribd.com/doc/36454091/Effective-Java-Chapter3</link>
     </resource>
   </resourceList>
   <mediaList>
