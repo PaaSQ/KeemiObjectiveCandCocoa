@@ -358,76 +358,76 @@
       </answer>
     </question>
     <question name="delegates" type="flashcard">
-    <title>Delegates</title>
-    <text>Which are the general steps implementing a delegate for a custom class?</text>
-	<answer explanation="delegates">
-	<answerItem correct="yes">
-	<text>Declare the delegate accessor methods in your class header file e.g. -(void)setDelegate: and -(id)delegate </text>
-	</answerItem>
-	<answerItem correct="yes">
-	<text>Implement the accessor methods. If you use ARC, the instance variable which holds the reference to the delegate should be __weak to avoid retain circles.</text>
-	</answerItem>
-	<answerItem correct="yes">
-	<text>Declare a formal or informal protocol containing the programmatic interface for the delegate. Informal protocols are categories on the NSObject class. If you declare a formal protocol for your delegate, make sure you mark groups of optional methods with the @optional directive. </text>
-	</answerItem>
-	<answerItem correct="yes">
-	<text>You should always pass the instance that is delegating through your interface methods e.g. -(void)dataLoader:(DataLoader*)loader didLoadData:(NSData*)data</text>
-	</answerItem>
-	<answerItem correct="yes">
-	<text>Before invoking a delegation method, make sure the delegate implements it by sending it a respondsToSelector: message.</text>
-	</answerItem>
-	</answer>
+      <title>Delegates</title>
+      <text>Which are the general steps implementing a delegate for a custom class?</text>
+      <answer explanation="delegates">
+        <answerItem correct="yes">
+          <text>Declare the delegate accessor methods in your class header file e.g. -(void)setDelegate: and -(id)delegate </text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Implement the accessor methods. If you use ARC, the instance variable which holds the reference to the delegate should be __weak to avoid retain circles.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Declare a formal or informal protocol containing the programmatic interface for the delegate. Informal protocols are categories on the NSObject class. If you declare a formal protocol for your delegate, make sure you mark groups of optional methods with the @optional directive. </text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>You should always pass the instance that is delegating through your interface methods e.g. -(void)dataLoader:(DataLoader*)loader didLoadData:(NSData*)data</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Before invoking a delegation method, make sure the delegate implements it by sending it a respondsToSelector: message.</text>
+        </answerItem>
+      </answer>
     </question>
     <question name="categories" type="multipleChoice">
-    <title>Categories</title>
-    <text>Which options describe a category?</text>
-    <answer numberOfVisibleCorrectItems="2" explanation="categories">
-    <answerItem correct="yes">
-    <text>A category can be declared for any class, even if you don’t have the original implementation source code.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>Any methods that you declare in a category will be available to all instances of the original class.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>Any methods that you declare in a category will be available to all subclasses of the original class.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>At runtime, there’s no difference between a method added by a category and one that is implemented by the original class.</text>
-    </answerItem>
-    <answerItem correct="no">
-    <text>A category must be declared and implemented in separate files (own .h / .m).</text>
-    </answerItem>
-    <answerItem correct="no">
-    <text>A category should implement private methods only.</text>
-    </answerItem>
-    <answerItem correct="no">
-    <text>Categories can be used to declare instance methods and are usually used for declaring additional properties.</text>
-    </answerItem>
-    </answer>
+      <title>Categories</title>
+      <text>Which options describe a category?</text>
+      <answer numberOfVisibleCorrectItems="2" explanation="categories">
+        <answerItem correct="yes">
+          <text>A category can be declared for any class, even if you don’t have the original implementation source code.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Any methods that you declare in a category will be available to all instances of the original class.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Any methods that you declare in a category will be available to all subclasses of the original class.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>At runtime, there’s no difference between a method added by a category and one that is implemented by the original class.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>A category must be declared and implemented in separate files (own .h / .m).</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>A category should implement private methods only.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>Categories can be used to declare instance methods and are usually used for declaring additional properties.</text>
+        </answerItem>
+      </answer>
     </question>
     <question name="classExtension" type="multipleChoice">
-    <title>Class Extensions</title>
-    <text>Which options describe a class extension?</text>
-    <answer numberOfVisibleCorrectItems="3">
-    <answerItem correct="yes">
-	<text>A class extension can only be added to a class for which you have the source code at compile time (the class is compiled at the same time as the class extension).</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>The methods declared by a class extension are implemented in the @implementation block for the original class.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>Unlike regular categories, a class extension can add its own properties and instance variables to a class.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>Class extensions are often used to extend the public interface with additional private methods or properties for use within the implementation of the class itself.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>Because no name is given in the parentheses, class extensions are often referred to as anonymous categories.</text>
-    </answerItem>
-    <answerItem correct="no">
-    <text>Unlike regular categories, a class extension can not add its own properties ans instance variables to a class.</text>
-    </answerItem>
-    </answer>
+      <title>Class Extensions</title>
+      <text>Which options describe a class extension?</text>
+      <answer numberOfVisibleCorrectItems="3" explanation="classExtension">
+        <answerItem correct="yes">
+          <text>A class extension can only be added to a class for which you have the source code at compile time (the class is compiled at the same time as the class extension).</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>The methods declared by a class extension are implemented in the @implementation block for the original class.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Unlike regular categories, a class extension can add its own properties and instance variables to a class.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Class extensions are often used to extend the public interface with additional private methods or properties for use within the implementation of the class itself.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Because no name is given in the parentheses, class extensions are often referred to as anonymous categories.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>Unlike regular categories, a class extension can not add its own properties ans instance variables to a class.</text>
+        </answerItem>
+      </answer>
     </question>
   </questionList>
   <explanationList>
@@ -569,7 +569,8 @@
       </section>
       <section>
         <title>Designated Initializer</title>
-        <text>If there are multiple initializers for a class, such a class should have a designated initializer. The rules of thumb using a designated initializer are:</text><question name="designatedInitializer"/> 
+        <text>If there are multiple initializers for a class, such a class should have a designated initializer. The rules of thumb using a designated initializer are:</text>
+        <question name="designatedInitializer"/>
       </section>
     </explanation>
     <explanation name="exceptionsAndErrors">
@@ -586,27 +587,31 @@
       </section>
     </explanation>
     <explanation name="delegates">
-    <title>Delegates</title>
-    <section>
-    <text>A delegate is an object that acts on behalf of, or in coordination with, another object when that object encounters an event in a program. To implement a delegate for your custom class, complete the following steps:</text><question name="delegates"/>
-    </section>
+      <title>Delegates</title>
+      <section>
+        <text>A delegate is an object that acts on behalf of, or in coordination with, another object when that object encounters an event in a program. To implement a delegate for your custom class, complete the following steps:</text>
+        <question name="delegates"/>
+      </section>
     </explanation>
     <explanation name="categories">
-    <title>Categories Add Methods to Existing Classes</title>
-    <section>
-<text>If you need to add a method to an existing class, perhaps to add functionality to make it easier to do something in your own application, the easiest way is to use a category.</text><text>A Category can be described as:</text><question name="categories"/><text>The code below shows a category Friendship for the class Person.</text>
-<mediaList>
-<media ref="personCategoryFriendship.html" type="html"/>
-</mediaList>
-<text>Categories can be used to declare either instance methods or class methods but are not usually suitable for declaring additional properties. It’s valid syntax to include a property declaration in a category interface, but it’s not possible to declare an additional instance variable in a category. This means the compiler won’t synthesize any instance variable, nor will it synthesize any property accessor methods. You can write your own accessor methods in the category implementation, but you won’t be able to keep track of a value for that property unless it’s already stored by the original class.</text>
-    </section>
+      <title>Categories Add Methods to Existing Classes</title>
+      <section>
+        <text>If you need to add a method to an existing class, perhaps to add functionality to make it easier to do something in your own application, the easiest way is to use a category.</text>
+        <text>A Category can be described as:</text>
+        <question name="categories"/>
+        <text>The code below shows a category Friendship for the class Person.</text>
+        <mediaList>
+          <media ref="personCategoryFriendship.html" type="html"/>
+        </mediaList>
+        <text>Categories can be used to declare either instance methods or class methods but are not usually suitable for declaring additional properties. It’s valid syntax to include a property declaration in a category interface, but it’s not possible to declare an additional instance variable in a category. This means the compiler won’t synthesize any instance variable, nor will it synthesize any property accessor methods. You can write your own accessor methods in the category implementation, but you won’t be able to keep track of a value for that property unless it’s already stored by the original class.</text>
+      </section>
     </explanation>
-    <explanation name="classExtensions">
-    <title>Class Extensions Extend the Internal Implementation</title>
-    <section>
-    <text>A class extension bears some similarity to a category, but</text>
-    <question name="classExtensions"/>
-    </section>
+    <explanation name="classExtension">
+      <title>Class Extensions Extend the Internal Implementation</title>
+      <section>
+        <text>A class extension bears some similarity to a category, but</text>
+        <question name="classExtension"/>
+      </section>
     </explanation>
   </explanationList>
   <resourceList>
