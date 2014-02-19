@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<html>
+<head>
+<title>ARC</title>
+</head>
+<body>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">//</span>
+<span style="color: #888888">// Examples showing what ARC does depending on the method name.</span>
+<span style="color: #888888">//</span>
+<span style="color: #008800; font-weight: bold">-</span> (Person<span style="color: #333333">*</span>)<span style="color: #0066BB; font-weight: bold">newPerson</span> {
+    Person <span style="color: #333333">*</span>person <span style="color: #333333">=</span> [[Person alloc] init];
+    <span style="color: #008800; font-weight: bold">return</span> person;
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * The method name begins with `new’, and since `person’</span>
+<span style="color: #888888">     * already has an unbalanced +1 reference count from the</span>
+<span style="color: #888888">     * `alloc’, no retains, releases or autoreleases are</span>
+<span style="color: #888888">     * required when returning.</span>
+<span style="color: #888888">     */</span>
+}
+
+<span style="color: #008800; font-weight: bold">-</span> (Person<span style="color: #333333">*</span>)<span style="color: #0066BB; font-weight: bold">somePerson</span> {
+    Person <span style="color: #333333">*</span>person <span style="color: #333333">=</span> [[Person alloc] init];
+    <span style="color: #008800; font-weight: bold">return</span> person;
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * The method name does not begin with one of the &quot;owning&quot;</span>
+<span style="color: #888888">     * prefixes, therefore ARC will add an autorelease when</span>
+<span style="color: #888888">     * returning `person’.</span>
+<span style="color: #888888">     * The equivalent manual reference counting statement is:</span>
+<span style="color: #888888">     *   return [person autorelease];</span>
+<span style="color: #888888">     */</span>
+}
+
+<span style="color: #008800; font-weight: bold">-</span> (<span style="color: #333399; font-weight: bold">void</span>)<span style="color: #0066BB; font-weight: bold">doSomething</span> {
+    Person <span style="color: #333333">*</span>personOne <span style="color: #333333">=</span> [self newPerson];
+    <span style="color: #888888">// …</span>
+    
+    Person <span style="color: #333333">*</span>personTwo <span style="color: #333333">=</span> [self somePerson];
+    <span style="color: #888888">// …</span>
+    
+    <span style="color: #888888">/**</span>
+<span style="color: #888888">     * At this point, `personOne’ and `personTwo’ go out of</span>
+<span style="color: #888888">     * scope, therefore ARC needs to clean them up as required.</span>
+<span style="color: #888888">     * - `personOne’ was returned as owned by this block of</span>
+<span style="color: #888888">     code, so it needs to be released.</span>
+<span style="color: #888888">     * - `personTwo’ was returned not owned by this block of</span>
+<span style="color: #888888">     code, so it does not need to be released.</span>
+<span style="color: #888888">     * The equivalent manual reference counting cleanup code</span>
+<span style="color: #888888">     * is:</span>
+<span style="color: #888888">     *    [personOne release];</span>
+<span style="color: #888888">     */</span>
+}
+</pre></div>
+</body>
+</html>

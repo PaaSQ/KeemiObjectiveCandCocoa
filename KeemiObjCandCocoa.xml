@@ -422,13 +422,52 @@
           <text>Class extensions are often used to extend the public interface with additional private methods or properties for use within the implementation of the class itself.</text>
         </answerItem>
         <answerItem correct="yes">
-          <text>Because no name is given in the parentheses, class extensions are often referred to as anonymous categories.</text>
+          <text>Because no name is given in the parentheses, class extensions are often referred to as anonymous categories or class-continuation category.</text>
         </answerItem>
         <answerItem correct="no">
           <text>A class extension can access the @public and @protected instance variables of the original class.</text>
         </answerItem>
         <answerItem correct="no">
           <text>Like regular categories, a class extension can not add its own properties and instance variables to a class.</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="categoryDuplicateMethodsProblem" type="singleChoice">
+      <title>Categories</title>
+      <text>What happens if two categories add the same method to a class?</text>
+      <answer>
+        <answerItem correct="yes">
+          <text>If a method in a category already exist, the category method wins and becomes the implementation of that method.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>The compiler raises an error if methods, with the same name, exists in categories.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>The runtime raises an exception if methods, with the same name, are added to a class.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>Implementing the same method in different categories is possible, but the correct header file must be included when used.</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="arcGeneratedCode" type="flashcard">
+      <title>Automatic Reference Counting ( ARC )</title>
+      <text>What does ARC do?</text>
+      <answer numberOfVisibleCorrectItems="2">
+        <mediaList>
+          <media ref="arcGeneratedCodeSamples.html" type="html"/>
+        </mediaList>
+        <answerItem correct="yes">
+          <text>Automatic Reference Counting (ARC) frees the developer from having to worry about most memory management. Using ARC reduces boilerplate code from classes.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>ARC handles the object life cycle almost entirely by adding in retains and releases as it sees appropriate. Variable qualifiers can be used to indicate memory-management semantics; previously, retains and releases were manually arranged.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Method names have always been used to indicate memory-management semantics of returned objects. ARC has solidified these and made it impossible not to follow them.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>ARC handles only Objective-C objects. In particular, this means that CoreFoundation objects are not handled, and the appropriate CFRetain/CFRelease calls must be applied.</text>
         </answerItem>
       </answer>
     </question>
@@ -616,6 +655,16 @@
         <question name="classExtension"/>
       </section>
     </explanation>
+    <explanation name="categoryDuplicateMethodsProblem">
+      <title>Always Prefix Category Names and Methods</title>
+      <section>
+        <text>Methods of categories are added to a class as if they were part of the class itself. This happens at runtime when the category is loaded.</text>
+        <text>If a method in a category already exists, the category method wins and becomes the implementation of that method.</text>
+        <text>A typical way to overcome this problem is to namespace the category name and methods to defines like:</text>
+        <text>@interface NSString (NAMESPACE_HTTP)</text>
+        <text>-(NSString*)NAMESPACE_urlEncodingString;</text>
+      </section>
+    </explanation>
   </explanationList>
   <resourceList>
     <resource name="effectiveObjc" type="book">
@@ -646,5 +695,6 @@
     <media ref="theObjectNil.html" type="html"/>
     <media ref="forwardClassDeclaration.html" type="html"/>
     <media ref="literalInsertNilIntoArray.html" type="html" label="NSInvalidArgumentException is thrown"/>
+    <media ref="arcGeneratedCodeSamples.html" type="html" label="Examples showing what ARC does depending on the method name." showLabelBeforeEvaluated="yes"/>
   </mediaList>
 </catalog>
