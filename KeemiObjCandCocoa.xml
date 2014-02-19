@@ -425,7 +425,7 @@
           <text>Because no name is given in the parentheses, class extensions are often referred to as anonymous categories.</text>
         </answerItem>
         <answerItem correct="no">
-          <text>Unlike regular categories, a class extension can not add its own properties ans instance variables to a class.</text>
+          <text>A class extension can access the @public and @protected instance variables of the original class.</text>
         </answerItem>
         <answerItem correct="no">
           <text>Like regular categories, a class extension can not add its own properties and instance variables to a class.</text>
