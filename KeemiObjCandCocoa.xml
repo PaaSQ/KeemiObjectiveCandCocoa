@@ -436,7 +436,7 @@
       <title>Categories</title>
       <text>What happens if two categories add the same method to a class?</text>
       <answer>
-        <answerItem correct="yes">
+        <answerItem correct="yes" explanation="categoryDuplicateMethodsProblem">
           <text>If a method in a category already exist, the category method wins and becomes the implementation of that method.</text>
         </answerItem>
         <answerItem correct="no">
@@ -472,18 +472,30 @@
       </answer>
     </question>
     <question name="dealloc" type="flashcard">
-    <text>What are the rules of thumb using the dealloc method inherited by NSObject?</text>
-    <answer explanation="dealloc" numberOfVisibleCorrectItems="2">
-    <answerItem correct="yes">
-    <text>The dealloc method should be used only to release references to other objects and to unregister anything that needs to be, such as Key-Value Observing (KVO) or NSNotificationCenter notifications.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>If an object holds onto system resources, such as file descriptors, there should be a method for releasing these resources. It should be the contract with the consumer of such a class to call this close method when finished using the resources.</text>
-    </answerItem>
-    <answerItem correct="yes">
-    <text>Method calls should be avoided in dealloc methods in case those methods try to perform asynchronous work or end up assuming that the object is in a normal state, which it won’t be.</text>
-    </answerItem>
-    </answer>
+      <text>What are the rules of thumb using the dealloc method inherited by NSObject?</text>
+      <answer explanation="dealloc" numberOfVisibleCorrectItems="2">
+        <answerItem correct="yes">
+          <text>The dealloc method should be used only to release references to other objects and to unregister anything that needs to be, such as Key-Value Observing (KVO) or NSNotificationCenter notifications.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>If an object holds onto system resources, such as file descriptors, there should be a method for releasing these resources. It should be the contract with the consumer of such a class to call this close method when finished using the resources.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Method calls should be avoided in dealloc methods in case those methods try to perform asynchronous work or end up assuming that the object is in a normal state, which it won’t be.</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="findingMemoryLeaks" type="wordResponse">
+      <title>Finding Memory Leaks</title>
+      <text>There is a environment flag which instructs the runtime not to deallocate an object which should actually be deallocated. What is the name of the flag?</text>
+      <answer explanation="findingMemoryLeaks">
+        <answerItem correct="yes">
+          <text>NSZombieEnabled</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>nszombieenabled</text>
+        </answerItem>
+      </answer>
     </question>
   </questionList>
   <explanationList>
@@ -680,13 +692,22 @@
       </section>
     </explanation>
     <explanation name="dealloc">
-    <title>Release References and Clean Up Observation State Only in dealloc</title>
-    <section>
-    <text>An object going through its life cycle eventually ends up being deallocated, which is where the dealloc method enters. It is called exactly once during the life cycle of an object: when its retain count drops to zero. When exactly it gets called is not guaranteed, though. You should never call dealloc yourself. The runtime will call it at exactly the right time for you. Also, after dealloc has been called on an object, that object is no longer valid, and subsequent method calls are invalid. In general the rules of thumb using dealloc are:</text><question name="dealloc"/><text>The code snippet below shows a dealloc method exemplary.</text>
-    <mediaList>
-    <media ref="dealloc.html" type="html"/>
-    </mediaList>
-    </section>
+      <title>Release References and Clean Up Observation State Only in dealloc</title>
+      <section>
+        <text>An object going through its life cycle eventually ends up being deallocated, which is where the dealloc method enters. It is called exactly once during the life cycle of an object: when its retain count drops to zero. When exactly it gets called is not guaranteed, though. You should never call dealloc yourself. The runtime will call it at exactly the right time for you. Also, after dealloc has been called on an object, that object is no longer valid, and subsequent method calls are invalid. In general the rules of thumb using dealloc are:</text>
+        <question name="dealloc"/>
+        <text>The code snippet below shows a dealloc method exemplary.</text>
+        <mediaList>
+          <media ref="dealloc.html" type="html"/>
+        </mediaList>
+      </section>
+    </explanation>
+    <explanation name="findingMemoryLeaks">
+      <title>Finding Memory Leaks</title>
+      <section>
+        <text>Memory leaks are blocks of allocated memory that the program no longer references. Leaks waste space by filling up pages of memory with inaccessible data and waste time due to extra paging activity. Leaked memory eventually forces the system to allocate additional virtual memory pages for the application, the allocation of which could have been avoided by reclaiming the leaked memory.</text>
+        <text>For Cocoa and iPhone applications, if you fix a leak and your program starts crashing, your code is probably trying to use an already-freed object or memory buffer. Set the NSZombieEnabled environment variable to YES to find messages to already freed objects.</text>
+      </section>
     </explanation>
   </explanationList>
   <resourceList>
