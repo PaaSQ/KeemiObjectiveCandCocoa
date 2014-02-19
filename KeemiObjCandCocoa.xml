@@ -427,6 +427,9 @@
         <answerItem correct="no">
           <text>Unlike regular categories, a class extension can not add its own properties ans instance variables to a class.</text>
         </answerItem>
+        <answerItem correct="no">
+          <text>Like regular categories, a class extension can not add its own properties and instance variables to a class.</text>
+        </answerItem>
       </answer>
     </question>
   </questionList>
