@@ -497,6 +497,48 @@
         </answerItem>
       </answer>
     </question>
+    <question name="blocksInGeneral" type="multipleChoice">
+      <title>Working with Blocks</title>
+      <text>Which options describe the language-level features of blocks?</text>
+      <answer explanation="blocksInGeneral" numberOfVisibleCorrectItems="2">
+        <answerItem correct="yes">
+          <text>Blocks are Objective-C objects, which means they can be added to collections like NSArray or NSDictionary.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Blocks have the ability to capture values from the enclosing scope, making them similar to closures or lambdas in other programming languages.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Blocks can take arguments and return values just like methods and functions.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Blocks can be stack allocated, heap allocated, or global. A stack-allocated block can be copied onto the heap, at which point it is reference counted just like standard Objective-C objects.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>Blocks are heap allocated, at which point it is reference counted just like standard Objective-C objects.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>Blocks have the ability to capture values from the enclosing scope, variables from the enclosing scope are can be read only.</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="blockBenefit" type="multipleChoice">
+      <title>Blocks as a useful alternative to traditional callback functions</title>
+      <text>Wy are blocks a useful alternative to traditional callback functions?</text>
+      <answer>
+        <answerItem correct="yes">
+          <text>They allow you to write code at the point of invocation that is executed later in the context of the method implementation.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>They allow access to local variables. Rather than using callbacks requiring a data structure that embodies all the contextual information you need to perform an operation, you simply access local variables directly.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>They are defined inline with your code and run faster as traditional functions.</text>
+        </answerItem>
+        <answerItem correct="no">
+          <text>They are executed in own threads and therefore fit into the concurrency model of Grand Central Dispatch.</text>
+        </answerItem>
+      </answer>
+    </question>
   </questionList>
   <explanationList>
     <explanation name="dontCompareToYes">
@@ -707,6 +749,18 @@
       <section>
         <text>Memory leaks are blocks of allocated memory that the program no longer references. Leaks waste space by filling up pages of memory with inaccessible data and waste time due to extra paging activity. Leaked memory eventually forces the system to allocate additional virtual memory pages for the application, the allocation of which could have been avoided by reclaiming the leaked memory.</text>
         <text>For Cocoa and iPhone applications, if you fix a leak and your program starts crashing, your code is probably trying to use an already-freed object or memory buffer. Set the NSZombieEnabled environment variable to YES to find messages to already freed objects.</text>
+      </section>
+    </explanation>
+    <explanation name="blocksInGeneral">
+      <title>Working with Blocks</title>
+      <section>
+        <text>Blocks are a language-level feature added to C, Objective-C and C++, which allow you to create distinct segments of code that can be passed around to methods or functions as if they were values. Blocks are: Objective-C objects, which means they can be added to collections like NSArray or NSDictionary. They also have the ability to capture values from the enclosing scope, making them similar to closures or lambdas in other programming languages.</text>
+        <text>In summary:</text>
+        <question name="blocksInGeneral"/>
+        <text>The code below shows the usage of blocks exemplarily.</text>
+        <mediaList>
+          <media ref="blocksInGeneral.html" type="html"/>
+        </mediaList>
       </section>
     </explanation>
   </explanationList>
