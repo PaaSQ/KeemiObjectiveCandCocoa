@@ -539,6 +539,27 @@
         </answerItem>
       </answer>
     </question>
+    <question name="keyValueEncoding" type="flashcard">
+      <title>Key-Value Coding</title>
+      <text>What Is Key-Value Coding?</text>
+      <answer>
+        <answerItem correct="yes">
+          <text>Key-value coding is a mechanism for accessing an object’s properties indirectly, using strings to identify properties, rather than through invocation of an accessor method or accessing them directly through instance variables.</text>
+        </answerItem>
+        <answerItem correct="yes">
+          <text>Key-value coding defines the patterns and method signatures that your application’s accessor methods implement.</text>
+        </answerItem>
+      </answer>
+    </question>
+    <question name="keyValueObserving" type="flashcard">
+      <title>Key-Value Observing</title>
+      <text>What is Key-Value Observing?</text>
+      <answer>
+        <answerItem correct="yes">
+          <text>Key-value observing is a mechanism that allows objects to be notified of changes to specified properties of other objects.</text>
+        </answerItem>
+      </answer>
+    </question>
   </questionList>
   <explanationList>
     <explanation name="dontCompareToYes">
@@ -762,6 +783,9 @@
           <media ref="blocksInGeneral.html" type="html"/>
         </mediaList>
       </section>
+      <resourceList>
+        <resource name="blocks"/>
+      </resourceList>
     </explanation>
   </explanationList>
   <resourceList>
@@ -785,6 +809,10 @@
     <resource name="objectEquality" type="website">
       <title>A good hash function ...</title>
       <link>http://de.scribd.com/doc/36454091/Effective-Java-Chapter3</link>
+    </resource>
+    <resource name="blocks" type="website">
+      <title>Objective C Blocks: Summary, Syntax &amp; Best Practices</title>
+      <link>http://amattn.com/p/objective_c_blocks_summary_syntax_best_practices.html</link>
     </resource>
   </resourceList>
   <mediaList>
