@@ -16,7 +16,7 @@
     <download>https://github.com/PaaSQ/KeemiObjectiveCandCocoa</download>
     <description>Objective-C is a superset of C, it is easy to mix C and even C++ into Cocoa applications. Cocoa is Apple's native object-oriented application programming interface (API) for the OS X operating system. This KEEMI catalog is aimed at developers who have already build an application using Objective-C and Cocoa (or Cocoa Touch) and want to accelerate their daily work with the essentials in mind.</description>
     <language>english</language>
-    <version>0.1</version>
+    <version>1.0</version>
   </info>
   <questionList>
     <question type="singleChoice" name="dontCompareToYes">
